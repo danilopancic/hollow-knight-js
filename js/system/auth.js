@@ -75,7 +75,7 @@ const handleLogin = async () => {
   const email = lEmailDiv.val();
   const password = lPasswordDiv.val();
   if (loginFirebaseAuth(email, password)) {
-    window.location.replace('/index.html');
+    window.location.replace('./index.html');
   }
 };
 
@@ -96,7 +96,7 @@ const handleRegister = async () => {
   };
   const response = await registerFirebaseAuth(data);
   if (response) {
-    window.location.replace('/index.html');
+    window.location.replace('./index.html');
   }
 };
 
