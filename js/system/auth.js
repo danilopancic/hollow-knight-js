@@ -16,11 +16,11 @@ import {
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD3sJsDKjz9hapWCXge0gyk7CMwqJmZzfM',
-  authDomain: 'hollow-knight-2d0c8.firebaseapp.com',
-  projectId: 'hollow-knight-2d0c8',
-  storageBucket: 'hollow-knight-2d0c8.appspot.com',
-  messagingSenderId: '840971568301',
-  appId: '1:840971568301:web:11d0deb251d61c3585f224',
+  authDomain: 'project-85570134596.firebaseapp.com',
+  projectId: 'project-85570134596',
+  storageBucket: 'project-85570134596.firebasestorage.app',
+  messagingSenderId: '85570134596',
+  appId: '1:85570134596:web:4f53d9748e4a9ed5f8c0c2',
 };
 // Your web app's Firebase configuration
 
