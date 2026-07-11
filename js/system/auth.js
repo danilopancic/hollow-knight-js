@@ -1,8 +1,8 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
 import {
-  addDoc,
-  collection,
+  doc,
   getFirestore,
+  setDoc,
 } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js';
 
 import {
@@ -56,14 +56,23 @@ const showAuthMessage = (message, target = 'login') => {
 };
 
 const registerFirebaseAuth = async (data) => {
-  const userRef = collection(db, 'users');
   try {
-    const doc = await addDoc(userRef, data);
     const userCred = await createUserWithEmailAndPassword(
       auth,
       data.email,
       data.password
     );
+
+    const profileData = {
+      username: data.username,
+      location: data.location,
+      lastName: data.lastName,
+      firstName: data.firstName,
+      email: data.email,
+      createdAt: new Date().toISOString(),
+    };
+
+    await setDoc(doc(db, 'users', userCred.user.uid), profileData);
     return true;
   } catch (err) {
     const errCode = err.code;
@@ -117,7 +126,7 @@ const handleRegister = async () => {
   };
   const response = await registerFirebaseAuth(data);
   if (response === true) {
-    showAuthMessage('Registration successful! You can now log in.', 'register');
+    showAuthMessage('Registration successful! Check Authentication > Users in Firebase.', 'register');
     setTimeout(() => {
       window.location.replace('./index.html');
     }, 1500);
