@@ -16,9 +16,9 @@ import {
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD3sJsDKjz9hapWCXge0gyk7CMwqJmZzfM',
-  authDomain: 'project-85570134596.firebaseapp.com',
-  projectId: 'project-85570134596',
-  storageBucket: 'project-85570134596.firebasestorage.app',
+  authDomain: 'hollow-knight-game.firebaseapp.com',
+  projectId: 'hollow-knight-game',
+  storageBucket: 'hollow-knight-game.firebasestorage.app',
   messagingSenderId: '85570134596',
   appId: '1:85570134596:web:4f53d9748e4a9ed5f8c0c2',
 };
