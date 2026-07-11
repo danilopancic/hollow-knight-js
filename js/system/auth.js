@@ -14,9 +14,13 @@ import {
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+const currentHost = window.location.hostname;
 const firebaseConfig = {
   apiKey: 'AIzaSyD3sJsDKjz9hapWCXge0gyk7CMwqJmZzfM',
-  authDomain: 'hollow-knight-2d0c8.firebaseapp.com',
+  authDomain:
+    currentHost === 'localhost' || currentHost === '127.0.0.1'
+      ? 'hollow-knight-2d0c8.firebaseapp.com'
+      : currentHost,
   projectId: 'hollow-knight-2d0c8',
   storageBucket: 'hollow-knight-2d0c8.appspot.com',
   messagingSenderId: '840971568301',
@@ -42,6 +46,18 @@ const rLocationDiv = $('#registerLocation');
 const rLastNameDiv = $('#registerLastName');
 const rFirstNameDiv = $('#registerFirstName');
 const rEmailDiv = $('#registerEmail');
+
+const loginAuthMessageDiv = $('#loginAuthMessage');
+const registerAuthMessageDiv = $('#registerAuthMessage');
+
+const showAuthMessage = (message, target = 'login') => {
+  const targetDiv = target === 'register' ? registerAuthMessageDiv : loginAuthMessageDiv;
+  if (targetDiv.length) {
+    targetDiv.text(message);
+  } else {
+    console.error(message);
+  }
+};
 
 const registerFirebaseAuth = async (data) => {
   const userRef = collection(db, 'users');
@@ -74,8 +90,17 @@ const loginFirebaseAuth = async (email, password) => {
 const handleLogin = async () => {
   const email = lEmailDiv.val();
   const password = lPasswordDiv.val();
-  if (loginFirebaseAuth(email, password)) {
+
+  if (!email || !password) {
+    showAuthMessage('Please enter both email and password.');
+    return;
+  }
+
+  const response = await loginFirebaseAuth(email, password);
+  if (response === true) {
     window.location.replace('./index.html');
+  } else {
+    showAuthMessage(response?.message || 'Login failed. Please try again.', 'login');
   }
 };
 
@@ -95,8 +120,10 @@ const handleRegister = async () => {
     email,
   };
   const response = await registerFirebaseAuth(data);
-  if (response) {
+  if (response === true) {
     window.location.replace('./index.html');
+  } else {
+    showAuthMessage(response?.message || 'Registration failed. Please try again.', 'register');
   }
 };
 
