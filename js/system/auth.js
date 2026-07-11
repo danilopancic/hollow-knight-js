@@ -117,7 +117,10 @@ const handleRegister = async () => {
   };
   const response = await registerFirebaseAuth(data);
   if (response === true) {
-    window.location.replace('./index.html');
+    showAuthMessage('Registration successful! You can now log in.', 'register');
+    setTimeout(() => {
+      window.location.replace('./index.html');
+    }, 1500);
   } else {
     showAuthMessage(response?.message || 'Registration failed. Please try again.', 'register');
   }
