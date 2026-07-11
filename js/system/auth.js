@@ -135,15 +135,29 @@ const rFormDiv = $('.register-form');
 const lFormDiv = $('.login-form');
 const rBtn = $('.register-button');
 const lBtn = $('.login-button');
+const registerToggleLink = $('.register-toggle-link');
+const loginToggleLink = $('.login-toggle-link');
+
+const showRegisterForm = () => {
+  lFormDiv.animate({ left: '-100%' }, 1000);
+  rFormDiv.animate({ right: '0%' }, 500);
+};
+
+const showLoginForm = () => {
+  rFormDiv.animate({ right: '-100%' }, 1000);
+  lFormDiv.animate({ left: '0%' }, 500);
+};
 
 rFormDiv.animate({ right: '-100%' }, 0);
 
-rBtn.click(() => {
-  lFormDiv.animate({ left: '-100%' }, 1000);
-  rFormDiv.animate({ right: '0%' }, 500);
+rBtn.click(showRegisterForm);
+registerToggleLink.click((event) => {
+  event.preventDefault();
+  showRegisterForm();
 });
 
-lBtn.click(() => {
-  rFormDiv.animate({ right: '-100%' }, 1000);
-  lFormDiv.animate({ left: '0%' }, 500);
+lBtn.click(showLoginForm);
+loginToggleLink.click((event) => {
+  event.preventDefault();
+  showLoginForm();
 });

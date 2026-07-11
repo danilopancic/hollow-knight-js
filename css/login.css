@@ -104,6 +104,20 @@ body{
   text-decoration: underline;
 }
 
+.auth-toggle-text {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.85);
+}
+
+.auth-toggle-link {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
 .login-form button {
   width: 100%;
   padding: 10px 0px;
