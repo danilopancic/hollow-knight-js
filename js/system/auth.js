@@ -15,12 +15,12 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyD3sJsDKjz9hapWCXge0gyk7CMwqJmZzfM',
+  apiKey: 'AIzaSyC76I4TDwsjL2lxF4Q8Hhstu_UlYUUWN9o',
   authDomain: 'hollow-knight-game.firebaseapp.com',
   projectId: 'hollow-knight-game',
-  storageBucket: 'hollow-knight-game.appspot.com',
+  storageBucket: 'hollow-knight-game.firebasestorage.app',
   messagingSenderId: '85570134596',
-  appId: '1:85570134596:web:4f53d9748e4a9ed5f8c0c2',
+  appId: '1:85570134596:web:d3479480070346601ed211',
 };
 // Your web app's Firebase configuration
 
