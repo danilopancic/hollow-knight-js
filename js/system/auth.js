@@ -14,13 +14,9 @@ import {
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-const currentHost = window.location.hostname;
 const firebaseConfig = {
   apiKey: 'AIzaSyD3sJsDKjz9hapWCXge0gyk7CMwqJmZzfM',
-  authDomain:
-    currentHost === 'localhost' || currentHost === '127.0.0.1'
-      ? 'hollow-knight-2d0c8.firebaseapp.com'
-      : currentHost,
+  authDomain: 'hollow-knight-2d0c8.firebaseapp.com',
   projectId: 'hollow-knight-2d0c8',
   storageBucket: 'hollow-knight-2d0c8.appspot.com',
   messagingSenderId: '840971568301',
